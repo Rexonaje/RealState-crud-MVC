@@ -1,7 +1,7 @@
 <?php
  define('TEMPLATES_URL',__DIR__ . '/templates');
  define('FUNCIONES_URL',__DIR__ . 'functiones.php');
-define('CARPETA_IMAGENES' ,  __DIR__ .'/../imagenes/');
+ define( 'CARPETA_IMAGENES' ,$_SERVER['DOCUMENT_ROOT']. '/imagenes/');
 
 function includirTemplate( string $nombre, bool $inicio=false){
     include  TEMPLATES_URL . "/$nombre.php";
@@ -17,11 +17,13 @@ function estaAutenticado(){
     
 }
 
-function debugear( $variable){
+function debugear( $variable,$exit=true){
     echo '<pre>';
         var_dump($variable);
     echo '</pre>';
-    exit;
+   if($exit){
+        exit;     
+    } 
 }
 //escapar el html
 function sanitizar($html):string{

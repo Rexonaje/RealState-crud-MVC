@@ -21,7 +21,7 @@ class Propiedad extends ActiveRecord{
         $this->id=$args['id'] ?? null;
         $this->titulo=$args['titulo'] ?? '';
         $this->precio=$args['precio'] ?? '';
-        $this->imagen=$args['imagen'] ?? 'imagen.jpg';// no lo esta encontrando y las iamgenes no cargan y no se borran 
+        $this->imagen=$args['imagen'] ?? 'defaultImage.jpg'; 
         $this->descripcion=$args['descripcion'] ?? '';
         $this->habitaciones=$args['habitaciones']?? '';
         $this->wc=$args['wc']?? '';

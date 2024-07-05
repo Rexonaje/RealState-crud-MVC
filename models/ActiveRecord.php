@@ -44,7 +44,7 @@ use GuzzleHttp\Psr7\Query;
         $resultado=self::$db->query($query);
         if($resultado){
             //redireccionar al user para evitar entradas duplicadas
-            header('location: /BIENESRAICES/admin?resultado=1'); 
+            header('location:  /admin?resultado=1'); 
             }
     }
     public function actualizar(){
