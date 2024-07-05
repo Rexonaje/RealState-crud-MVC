@@ -14,7 +14,7 @@
                 <input type="file" id="imagen" name="propiedad[imagen]" accept="image/jpeg, image/img"   >
 
                 <?php if($propiedad->imagen){  ?>
-                        <img src="/imagenes/<?php echo $propiedad->imagen ?>" class="imagen-small">
+                        <img src="/imagenes/<?php echo $propiedad->imagen ?>" class="imagen-default">
                 <?php }?>
                 <label for="descripcion"></label>
                 <textarea  id="descripcion"   name="propiedad[descripcion]" placeholder="descripcion propiedad"  > <?php echo sanitizar($propiedad->descripcion); ?>  </textarea>
