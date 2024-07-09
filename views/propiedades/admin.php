@@ -5,7 +5,7 @@
         <a href="/vendedores/crear.php" class="boton boton-amarillo">Nuevo Vendedor</a>
     <?php
         if($resultado){
-            $mensaje=mostrarNotificaciones(intval($_resultado));//inval convierte string a int
+            $mensaje=mostrarNotificaciones(intval($resultado));//inval convierte string a int
             if($mensaje){ ?>
                 <p class="alerta exito"><?php echo sanitizar($mensaje)?></p><?php
             };
