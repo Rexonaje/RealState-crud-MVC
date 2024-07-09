@@ -15,6 +15,7 @@ class Router{
                 $metodo=$_SERVER['REQUEST_METHOD'];
 
             if($metodo==='GET'){
+                    $urlActual = explode('?',$urlActual)[0];//para evitar que no encuentre la url con ?var
                     $fn=$this->rutasGet[$urlActual]??null;//basado en la pagina q visito hay una funcion asociada
             }else{
                     $fn=$this->rutasPost[$urlActual]??null;//basado en la pagina q visito hay una funcion asociada
