@@ -59,7 +59,59 @@ class PropiedadController{
             'errores'=>$errores
         ]);
     }    
-    public static function actualizar(){
-        echo "actualizar";
+    public static function actualizar(Router $router){
+        //consultar bd para obtener id 
+        $id=validarORedireccionar('/admin');
+        $propiedad=Propiedad::find($id);//encontrar propiedad con id proporcinado
+        
+        $errores=Propiedad::getErrores();
+        $vendedores= Vendedores::all();
+
+            //Method post para actualizar
+        if($_SERVER["REQUEST_METHOD"]==="POST"){
+        
+                //asgnar atributos   
+            $args=$_POST['propiedad'];
+            $propiedad->sincronizar($args);
+                //validar
+            $errores=$propiedad->validar();
+                //nombre de Imagen
+            $nombreImagen=md5(uniqid(rand())) . ".jpg";
+                //subir files
+            if($_FILES['propiedad']['tmp_name']['imagen']){
+                //setear la imagen y rezise
+                $manager = new Image(Driver::class);
+                $Image=$manager->read($_FILES['propiedad']['tmp_name']['imagen'])->cover(800,600);
+                $propiedad->setImage($nombreImagen);
+            }
+            //si errores esta vacio ejecuta el codigo 
+            if(empty($errores)){
+                if($_FILES['propiedad']['tmp_name']['imagen']){
+                    $Image->save(CARPETA_IMAGENES . $nombreImagen);
+                }
+                $propiedad->guardar();
+            };
+            
+        }
+        $router->render('/propiedades/actualizar',[//mostrar pagina de actualizar
+            'propiedad'=>$propiedad,
+            'errores'=>$errores,
+            'vendedores'=>$vendedores
+        ]);
     }    
+    public static function eliminar(){
+             //Method post para eliminar
+        if($_SERVER["REQUEST_METHOD"]==="POST"){
+            //validar id
+            $_id= $_POST['id'];
+            $_id=filter_var($_id, FILTER_VALIDATE_INT);
+            if($_id){
+                $tipo=$_POST['tipo'];
+                if(validarTipoContenido($tipo)){
+                    $propiedad=Propiedad::find($_id);
+                    $propiedad->eliminar();
+                }
+            }
+        }
+    }
 }

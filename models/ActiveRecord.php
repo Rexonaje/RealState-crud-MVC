@@ -62,7 +62,7 @@ use GuzzleHttp\Psr7\Query;
         $resultado =self::$db->query($query);
         if($resultado){
             //redireccionar al user para evitar entradas duplicadas
-            header('location: /BIENESRAICES/admin?resultado=2'); 
+            header('location: /admin?resultado=2'); 
           }
     }
     public function atributos(){
@@ -80,7 +80,7 @@ use GuzzleHttp\Psr7\Query;
         if($resultado){
             //redireccionar al user para evitar entradas duplicadas
         $this->borrarImagen();
-            header('location: /BIENESRAICES/admin?resultado=3'); 
+            header('location: /admin?resultado=3'); 
           }
     }
     public function sanitizado(){

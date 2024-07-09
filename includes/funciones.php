@@ -53,3 +53,12 @@ function mostrarNotificaciones($codigo){
     }
     return $mensaje;
 }
+function validarORedireccionar(string $url){
+    //validar url id 
+    $id=$_GET['id'];
+    $id=filter_var($id,FILTER_VALIDATE_INT);//filtro para validar id sea entero
+    if(!$id){
+    header('location: '. $url);
+    }
+    return $id;
+}
