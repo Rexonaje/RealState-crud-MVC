@@ -10,10 +10,12 @@ use Intervention\Image\Drivers\Gd\Driver;
 class PropiedadController{
     public static function index(Router $router){
         $propiedades=Propiedad::all();//controlador guarda los datos en la variable
+        $vendedores=Vendedores::all();
         $resultado=$_GET['resultado']??null;   
 
         $router->render("propiedades/admin",[
-            'propiedades'=>$propiedades,//se lo pasa a la vista
+            'propiedades'=>$propiedades,
+            'vendedores'=>$vendedores,//se lo pasa a la vista
             'resultado'=>$resultado
         ]);
     }

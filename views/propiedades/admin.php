@@ -2,7 +2,7 @@
         <h1>Administrador de bienes raices</h1>
 
         <a href="/propiedades/crear" class="boton boton-verde">Nueva Propiedad</a>
-        <a href="/vendedores/crear.php" class="boton boton-amarillo">Nuevo Vendedor</a>
+        <a href="/vendedores/crear" class="boton boton-amarillo">Nuevo Vendedor</a>
     <?php
         if($resultado){
             $mensaje=mostrarNotificaciones(intval($resultado));//inval convierte string a int
@@ -42,5 +42,33 @@
                     </tr>
                     <?php endforeach;?>
                 </tbody>
+            </table>
+            <h1>Vendedores</h1>
+            <table class="propiedades">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($vendedores as $vendedor): ?>
+                    <tr>
+                        <th><?php echo $vendedor->id; ?></th>
+                        <th><?php echo $vendedor->nombre . " ". $vendedor->apellido; ?></th>
+                        <th><?php echo $vendedor->telefono; ?></th>
+                        <th>
+                            <form method="POST" class="w-100" action="/vendedores/eliminar">
+                                <input type="hidden" name="id" value="<?php echo $vendedor->id; ?>">
+                                <input type="hidden" name="tipo" value="vendedor">
+                                <input  type="submit" class="boton-rojo-block" value="Eliminar">
+                            </form>
+                            <a href="vendedores/actualizar?id=<?php echo $vendedor->id; ?>" class="boton-amarillo-block">Actualizar</a>
+                        </th>
+                    </tr>
+                    <?php endforeach;?>
+                    </tbody>
             </table>
 </main>

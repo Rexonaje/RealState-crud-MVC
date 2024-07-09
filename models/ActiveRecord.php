@@ -79,9 +79,9 @@ use GuzzleHttp\Psr7\Query;
         $resultado=self::$db->query($query);
         if($resultado){
             //redireccionar al user para evitar entradas duplicadas
-        $this->borrarImagen();
+            $this->borrarImagen();
             header('location: /admin?resultado=3'); 
-          }
+        }
     }
     public function sanitizado(){
         $atributos=$this->atributos();
