@@ -2,7 +2,7 @@
     <?php foreach($propiedades as $propiedad){ ?>
                 <div class="anuncio">
                     <picture >   
-                        <img class="imagen-anuncio" loading="lazy" src="/bienesraices/imagenes/<?php echo $propiedad->imagen;?>" alt="anuncio">
+                        <img class="imagen-anuncio" loading="lazy" src="/imagenes/<?php echo $propiedad->imagen;?>" alt="anuncio">
                     </picture>
                     <div class="contenidio-anuncio">
                         <h3><?php echo $propiedad->titulo;?></h3>
@@ -22,7 +22,7 @@
                                 <p><?php echo $propiedad->habitaciones;?></p>
                             </li>
                         </ul>
-                        <a href="anuncio.php?id=<?php echo $propiedad->id;?>" class="boton-amarillo-block">
+                        <a href="propiedad?id=<?php echo $propiedad->id;?>" class="boton-amarillo-block">
                             Ver propiedad
                         </a>
                     </div>

@@ -23,20 +23,20 @@ if(!isset($_SESSION)){
 <header class="header <?php echo $inicio ? 'inicio':''; ?>">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="/bienesraices/index.php"><img src="../build/img/logo.svg" alt="Logotipo"></a>
+                <a href="/"><img src="../build/img/logo.svg" alt="Logotipo"></a>
                 <div class="mobile-menu">
                     <img src="../build/img/barras.svg" alt="icono-menu-responsive">
                 </div>
                 <div class="derecha">
                     <img class="dark-mode-btn" src="../build/img/dark-mode.svg" alt="dark-mode-btn ">
                     <nav class="navegacion">
-                        <a href="/bienesraices/nosotros.php">Nosotros</a>
-                        <a href="/bienesraices/anuncios.php">Anuncios</a>
-                        <a href="/bienesraices/blog.php">Blog</a>
-                        <a href="/bienesraices/contacto.php">Contacto</a>
+                        <a href="/nosotros">Nosotros</a>
+                        <a href="/propiedades">Anuncios</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contacto">Contacto</a>
                         <?php if($auth):?>
-                                <a href="../cerrar-sesion.php">Cerrar Sesion</a>
-                                <a href="../admin/index.php">Administrar</a>
+                                <a href="../cerrar-sesion">Cerrar Sesion</a>
+                                <a href="/admin">Administrar</a>
                         <?php endif; ?>
                         <?php
                         if(!$auth):?>
