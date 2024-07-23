@@ -10,7 +10,7 @@
                 </picture>
             </div>
             <div class="texto-entrada"> 
-                <a href="entrada.html">
+                <a href="/entrada">
                     <h4>Guia para la decoracion de tu hogar</h4>
                     <p>Escrito en <span>20/10/2021</span> por: <span>Admin</span></p>
 
@@ -29,7 +29,7 @@
                 </picture>
             </div>
             <div class="texto-entrada"> 
-                <a href="entrada.html">
+                <a href="/entrada">
                     <h4>Guia para la decoracion de tu hogar</h4>
                     <p>Escrito en <span>20/10/2021</span> por: <span>Admin</span></p>
 
@@ -48,7 +48,7 @@
                 </picture>
             </div>
             <div class="texto-entrada"> 
-                <a href="entrada.html">
+                <a href="/entrada">
                     <h4>Guia para la decoracion de tu hogar</h4>
                     <p>Escrito en <span>20/10/2021</span> por: <span>Admin</span></p>
 
@@ -67,7 +67,7 @@
                 </picture>
             </div>
             <div class="texto-entrada"> 
-                <a href="entrada.html">
+                <a href="/entrada">  
                     <h4>Guia para la decoracion de tu hogar</h4>
                     <p>Escrito en <span>20/10/2021</span> por: <span>Admin</span></p>
 

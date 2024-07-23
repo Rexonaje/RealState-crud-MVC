@@ -8,7 +8,7 @@
             <img loading="lazy" src="build/img/destacada3.jpg" alt="anuncio" />
         </picture>
 
-        <form class="formulario">
+        <form class="formulario" method="post">
            <fieldset>
                 <legend>Informacion personal</legend>
 
