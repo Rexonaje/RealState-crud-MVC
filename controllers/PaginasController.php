@@ -39,7 +39,10 @@ use PHPMailer\PHPMailer\PHPMailer;
         
     }
     public static function contacto(Router $router){
+        $mensaje=null;
         if($_SERVER['REQUEST_METHOD']==='POST'){
+            $respuesta=$_POST['contacto'];
+            //debugear($_POST);
             //crear una instancia de phpmailer
             $mail=new PHPMailer();
             //Configurar smtp
@@ -50,8 +53,13 @@ use PHPMailer\PHPMailer\PHPMailer;
             $mail->Password='07754e70f5d1b0';
             $mail->SMTPSecure='tls';//No encriptados pero por un canal seguro
             $mail->Port=2525;
+
             //configurar el contenido del mail
-            $mail->setFrom('admin@bienesraices.com');// quien envia
+            if($respuesta['contacto']==='email'){//chequea si existe mail x parte de user
+                $mail->setFrom($respuesta['email']);
+            }else{
+                $mail->setFrom('correo@correo.com');// quien envia
+            }
             $mail->addAddress('admin@bienesraices.com','BienesRaices.com');//quien recibe
             $mail->Subject='Tienes un nuevo mensaje';
 
@@ -59,18 +67,38 @@ use PHPMailer\PHPMailer\PHPMailer;
             $mail->isHTML(true);
             $mail->CharSet='UTF-8';
             //definir contenido
-            $contenido='<html> <p> Tienes un nuevo mensaje </p> </html> ';
+            $contenido='<html>';
+            $contenido.= '<p> Tienes un nuevo mensaje </p>';
+            $contenido.= '<p> De:'. $respuesta['nombre'].'</p>';
+            $contenido.= '<p> vende o compra:'. $respuesta['tipo'].'</p>';
+            $contenido.= '<p> presupuesto: $'. $respuesta['precio'].'</p>';
+            $contenido.= '<p> forma de contacto preferida: '. $respuesta['contacto'].'</p>';
+            if($respuesta['contacto']==='telefono'){
+                $contenido.= '<p> telefono:'. $respuesta['telefono'].'</p>';
+                $contenido.= '<p> fecha: '. $respuesta['fecha'].'</p>';
+                $contenido.= '<p> hora: '. $respuesta['hora'].'</p>';     
+            }else{
+                $contenido.= '<p> Email:'. $respuesta['email'].'</p>';
+            }
+            $contenido.= '<p> mensaje:'. $respuesta['mensaje'].'</p>';
+            $contenido.='</html> ';
+
+
+
+
             $mail->Body=$contenido;
             $mail->AltBody='Tienes un nuevo mensaje';
             //enviar mail
             if($mail->send()){
-                echo "Mensaje enviado correctamente";
+                $mensaje= "Mensaje enviado correctamente";
             }
             else{
-                echo "error al enviar mensaje";
+                $mensaje= "error al enviar mensaje";
             }
         }
-        $router->render('paginas/contacto',[]);                             
+        $router->render('paginas/contacto',[
+            'mensaje'  =>$mensaje
+        ]);                             
         
     }
  }
