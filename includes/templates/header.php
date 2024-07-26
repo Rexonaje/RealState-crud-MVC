@@ -36,7 +36,7 @@ if(!isset($_SESSION)){
                         <?php endif; ?>
                         <?php
                         if(!$auth):?>
-                                <a href="/bienesraices/login.php">Iniciar Sesion</a>
+                                <a href="auth/login">Iniciar Sesion</a>
                         <?php endif; ?>
                         
                     </nav>
