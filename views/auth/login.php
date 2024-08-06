@@ -1,10 +1,7 @@
 
 <main class="contenedor seccion contenido-centrado">
     <h1>Iniciar Sesion</h1>
-    <div class="alerta exito">
-        <?php //agregado solo a modo de prueba
-         echo " entrar con correo@correo.com 123456";?> 
-    </div>
+    
     <form method="POST" class="formulario" action="/login">
         <?php foreach($errores as $error): ?>
             <div class="alerta error">

@@ -42,7 +42,7 @@ use PHPMailer\PHPMailer\PHPMailer;
         $mensaje=null;
         if($_SERVER['REQUEST_METHOD']==='POST'){
             $respuesta=$_POST['contacto'];
-            //debugear($_POST);
+            
             //crear una instancia de phpmailer
             $mail=new PHPMailer();
             //Configurar smtp
@@ -53,7 +53,6 @@ use PHPMailer\PHPMailer\PHPMailer;
             $mail->Password='07754e70f5d1b0';
             $mail->SMTPSecure='tls';//No encriptados pero por un canal seguro
             $mail->Port=2525;
-
             //configurar el contenido del mail
             if($respuesta['contacto']==='email'){//chequea si existe mail x parte de user
                 $mail->setFrom($respuesta['email']);
@@ -62,7 +61,7 @@ use PHPMailer\PHPMailer\PHPMailer;
             }
             $mail->addAddress('admin@bienesraices.com','BienesRaices.com');//quien recibe
             $mail->Subject='Tienes un nuevo mensaje';
-
+            
             //habilitar html
             $mail->isHTML(true);
             $mail->CharSet='UTF-8';
@@ -82,19 +81,21 @@ use PHPMailer\PHPMailer\PHPMailer;
             }
             $contenido.= '<p> mensaje:'. $respuesta['mensaje'].'</p>';
             $contenido.='</html> ';
-
-
-
-
+            
+            
+            
+            
             $mail->Body=$contenido;
             $mail->AltBody='Tienes un nuevo mensaje';
             //enviar mail
+            //debugear($_POST);
             if($mail->send()){
                 $mensaje= "Mensaje enviado correctamente";
             }
             else{
                 $mensaje= "error al enviar mensaje";
             }
+             
         }
         $router->render('paginas/contacto',[
             'mensaje'  =>$mensaje

@@ -18,7 +18,7 @@
         <section class="imagen-contacto">
             <h2>Encuentra la casa de tus sueños</h2>
             <p>llena el formulario y un asesor se pondra en contacto a la brevedad</p>
-            <a href="contacto.html" class="boton-amarillo">Contactanos</a>
+            <a href="/contacto" class="boton-amarillo">Contactanos</a>
         </section><!--imagen-contacto-->
     
         <div class="contenedor section seccion-inferior">
@@ -34,7 +34,7 @@
                         </picture>
                     </div>
                     <div class="texto-entrada"> 
-                        <a href="entrada.html">
+                        <a href="/entrada">
                             <h4>Terraza en el techo de tu casa</h4>
                             <p class="informacion-meta">Escrito en <span>20/10/2021</span> por: <span>Admin</span></p>
 
@@ -53,7 +53,7 @@
                         </picture>
                     </div>
                     <div class="texto-entrada"> 
-                        <a href="entrada.html">
+                        <a href="/entrada">
                             <h4>Guia para la decoracion de tu hogar</h4>
                             <p class="informacion-meta">Escrito en <span>20/10/2021</span> por: <span>Admin</span></p>
 

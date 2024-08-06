@@ -19,24 +19,24 @@
                 <legend>Informacion personal</legend>
 
                 <label for="nombre">Nombre</label>
-                <input type="text" placeholder="Tu nombre" id="nombre" name="contacto[nombre]" require>
+                <input type="text" placeholder="Tu nombre" id="nombre" name="contacto[nombre]" required>
 
                 
                 <label for="Mensaje">Mensaje</label>
-                <textarea id="Mensaje" name="contacto[mensaje]" require></textarea>
+                <textarea id="Mensaje" name="contacto[mensaje]" required></textarea>
            </fieldset>
            <fieldset>
             <legend>Informacion de compra</legend>
 
             <label for="Opciones">Vende o compra:</label>
-            <select   id="Opciones" name="contacto[tipo]" require>
+            <select id="Opciones" name="contacto[tipo]" required>
                 <option value="" disabled selected>--Seleccione</option>
                 <option value="Compra">Compra</option>
                 <option value="Venta">Venta</option>
             </select>
 
             <label for="Presupuesto">Precio o Presupuesto</label>
-            <input type="number" placeholder="Tu Precio o Presupuesto" id="Presupuesto" name="contacto[precio]" require>
+            <input type="number" placeholder="Tu Precio o Presupuesto" id="Presupuesto" name="contacto[precio]" required>
                 
            </fieldset>
 
@@ -47,9 +47,9 @@
 
             <div class="forma-contacto">
                 <label for="contactar-telefono">Telefono</label>
-                <input type="radio" value="telefono"  id="contactar-telefono" name="contacto[contacto]"  >
+                <input type="radio" value="telefono"  id="contactar-telefono" name="contacto[contacto]"  required >
                 <label for="contactar-Email">Email</label>
-                <input type="radio" value="email"  id="contactar-Email" name="contacto[contacto]">
+                <input type="radio" value="email"  id="contactar-Email" name="contacto[contacto]"required>
             </div>
             <div id="contacto"></div>
             
