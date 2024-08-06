@@ -35,8 +35,9 @@ if(!isset($_SESSION)){
                         <a href="/blog">Blog</a>
                         <a href="/contacto">Contacto</a>
                         <?php if($auth):?>
-                                <a href="../cerrar-sesion">Cerrar Sesion</a>
-                                <a href="/admin">Administrar</a>
+                                <a href="/logout">Cerrar Sesion</a>
+                                <a style="color: #E08709;" href="/admin">Admin</a>
+                                
                         <?php endif; ?>
                         <?php
                         if(!$auth):?>

@@ -11,8 +11,14 @@ class Router{
                 $this->rutasPost[$url]=$fn;
             }
             public function comprobarRutas(){
-                $urlActual=$_SERVER['REQUEST_URI']??'/';
-                $metodo=$_SERVER['REQUEST_METHOD'];
+            session_start();
+            $auth=$_SESSION['login']?? null;
+
+            //arreglo de rutas protegidas
+            $rutas_protegidas=['/admin','/propiedades/crear','/propiedades/actualizar','/propiedades/eliminar','/vendedores/crear','/vendedores/actualizar','/vendedores/eliminar'];
+
+            $urlActual=$_SERVER['REQUEST_URI']??'/';
+            $metodo=$_SERVER['REQUEST_METHOD'];
 
             if($metodo==='GET'){
                     $urlActual = explode('?',$urlActual)[0];//para evitar que no encuentre la url con ?var
@@ -21,6 +27,13 @@ class Router{
                     $urlActual = explode('?',$urlActual)[0];
                     $fn=$this->rutasPost[$urlActual]??null;//basado en la pagina q visito hay una funcion asociada
             }
+            //si la url actual esta en la lista de rutas protegidas  da  true 
+            if(in_array($urlActual,$rutas_protegidas) && !$auth){
+                    header('location: /');
+            }
+
+
+
             if($fn){
                 //llamar funcion que cuyo nombre no conocemos
                 call_user_func($fn,$this);
