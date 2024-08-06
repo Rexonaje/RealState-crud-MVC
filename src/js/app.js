@@ -48,21 +48,21 @@ function mostrarMetodosContacto(e){
 //console.log('seleccionado');
  const $contactoDiv=document.getElementById('contacto');
   if(e.target.value==='telefono'){
-    $contactoDiv.innerHTML=`
-    <label for="Telefono">Telefono</label>
-    <input type="tel" placeholder="Tu Telefono" id="Telefono" name="contacto[telefono]" require>
+    $contactoDiv.innerHTML=` 
+    <label for="Telefono">Telefono</label> 
+    <input type="tel" placeholder="Tu Telefono" id="Telefono" name="contacto[telefono]" required>
 
     <p> elija la fecha y la hora</p>           
     <label for="Fecha">Fecha</label>
-    <input type="date"  id="Fecha"name="contacto[fecha]">
+    <input type="date"  id="Fecha"name="contacto[fecha]" required>
 
     <label for="Hora">Hora</label>
-    <input type="time" id="Hora" min="09:00" max="18:00" name="contacto[hora]">    
+    <input type="time" id="Hora" min="09:00" max="18:00" name="contacto[hora]" required>    
     `;
   }else{
     $contactoDiv.innerHTML=` 
     <label for="email">Email</label>
-    <input type="email" placeholder="Tu email" id="email" name="contacto[email]" require>
+    <input type="email" placeholder="Tu email" id="email" name="contacto[email]" required>
                 
     `;
   }
