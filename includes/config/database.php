@@ -1,8 +1,8 @@
 <?php
 
 function conectarDB() : mysqli{
-    $DB=new mysqli('localhost','root','root','bienesraices_crud');
-
+    $DB=new mysqli($_ENV['BD_HOST'],$_ENV['BD_USER'],$_ENV['BD_PASSWORD'],$_ENV['BD_NAME'],);
+    $DB->set_charset('utf-8');
     if(!$DB){
         echo "error de Conexion";
         exit;

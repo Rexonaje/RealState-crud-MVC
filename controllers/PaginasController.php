@@ -47,12 +47,12 @@ use PHPMailer\PHPMailer\PHPMailer;
             $mail=new PHPMailer();
             //Configurar smtp
             $mail->isSMTP();
-            $mail->Host='smtp.mailtrap.io';
+            $mail->Host=$_ENV['EMAIL_HOST'];
             $mail->SMTPAuth=true;
-            $mail->Username='c20fc8989472f9';
-            $mail->Password='07754e70f5d1b0';
+            $mail->Username=$_ENV['EMAIL_USER'];
+            $mail->Password=$_ENV['EMAIL_PASSWORD'];
             $mail->SMTPSecure='tls';//No encriptados pero por un canal seguro
-            $mail->Port=2525;
+            $mail->Port=$_ENV['EMAIL_PORT'];
             //configurar el contenido del mail
             if($respuesta['contacto']==='email'){//chequea si existe mail x parte de user
                 $mail->setFrom($respuesta['email']);
